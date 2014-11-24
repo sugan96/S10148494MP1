@@ -7,14 +7,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
 	// This is my mini project 1
 	int myNumber = 4;
+	int totalScore = 0;
 	EditText etNumber;
 	Button btGuess;
+	TextView tvScore;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +26,27 @@ public class MainActivity extends Activity {
 		
 		etNumber = (EditText) this.findViewById(R.id.etNumber);
 		btGuess = (Button) this.findViewById(R.id.btGuess);
-		btGuess.setOnClickListener(listener);
+		tvScore = (TextView) this.findViewById(R.id.tvScore); 
+		
+		btGuess.setOnClickListener(buttonListener);
 	}
 	
-	private View.OnClickListener listener = new View.OnClickListener() {
+	private View.OnClickListener buttonListener = new View.OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
 			
 			int num = Integer.parseInt(etNumber.getText().toString());
-			
-			if (num == myNumber)
+		
+			if (num == myNumber){
 				Toast.makeText(MainActivity.this,"Bingo! Correct number.", Toast.LENGTH_LONG).show();
+			
+					totalScore++;
+					StringBuilder sb = new StringBuilder();
+					sb.append("Your Score: " + totalScore);
+					
+					tvScore.setText(sb.toString());
+			}
 			else
 				Toast.makeText(MainActivity.this,"Try Again!", Toast.LENGTH_SHORT).show();
 			

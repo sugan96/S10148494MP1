@@ -25,4 +25,10 @@
         android:layout_height="wrap_content"
         android:text="Guess" />
 
+    <TextView
+        android:id="@+id/tvScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
 </LinearLayout>
