@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 		
 		etNumber = (EditText) this.findViewById(R.id.etNumber);
 		btGuess = (Button) this.findViewById(R.id.btGuess);
-		tvScore = (TextView) this.findViewById(R.id.tvScore); 
+		tvScore = (TextView) this.findViewById(R.id.tvScore);
 		
 		btGuess.setOnClickListener(buttonListener);
 	}
@@ -35,9 +35,9 @@ public class MainActivity extends Activity {
 		
 		@Override
 		public void onClick(View v) {
-			
+			try{
 			int num = Integer.parseInt(etNumber.getText().toString());
-		
+			
 			if (num == myNumber){
 				Toast.makeText(MainActivity.this,"Bingo! Correct number.", Toast.LENGTH_LONG).show();
 			
@@ -49,7 +49,11 @@ public class MainActivity extends Activity {
 			}
 			else
 				Toast.makeText(MainActivity.this,"Try Again!", Toast.LENGTH_SHORT).show();
-			
+			}
+			catch(Exception e){
+				//System.out.print("Please enter a number from 0 to 9");
+				Toast.makeText(MainActivity.this,"Enter only numbers from 0 to 9", Toast.LENGTH_SHORT).show();
+			}
 		}
 	};
 
