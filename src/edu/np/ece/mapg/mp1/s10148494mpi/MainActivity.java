@@ -38,22 +38,28 @@ public class MainActivity extends Activity {
 			try{
 			int num = Integer.parseInt(etNumber.getText().toString());
 			
-			if (num == myNumber){
-				Toast.makeText(MainActivity.this,"Bingo! Correct number.", Toast.LENGTH_LONG).show();
-			
-					totalScore++;
-					StringBuilder sb = new StringBuilder();
-					sb.append("Your Score: " + totalScore);
-					
-					tvScore.setText(sb.toString());
+			if (num < 0 | num > 9){
+				Toast.makeText(MainActivity.this,"Guess within 0 to 9", Toast.LENGTH_LONG).show();
 			}
-			else
-				Toast.makeText(MainActivity.this,"Try Again!", Toast.LENGTH_SHORT).show();
+			else{
+				if (num == myNumber){
+					Toast.makeText(MainActivity.this,"Bingo! Correct number.", Toast.LENGTH_LONG).show();
+				
+						totalScore++;
+						StringBuilder sb = new StringBuilder();
+						sb.append("Your Score: " + totalScore);
+						
+						tvScore.setText(sb.toString());
+				}
+				else
+					Toast.makeText(MainActivity.this,"Try Again!", Toast.LENGTH_SHORT).show();
+			}
+			
 			}
 			catch(Exception e){
-				//System.out.print("Please enter a number from 0 to 9");
 				Toast.makeText(MainActivity.this,"Enter only numbers from 0 to 9", Toast.LENGTH_SHORT).show();
 			}
+			
 		}
 	};
 
