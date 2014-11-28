@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
-	// This is my mini project 1
 	int myNumber = 4;
 	int totalScore = 0;
 	EditText etNumber;
